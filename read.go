@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"io"
 	"io/ioutil"
+	"log"
 )
 
 // Read PDF Document from any sources that
@@ -17,7 +18,7 @@ func Parse(src io.ByteReader) (*Document, error) {
 	)
 	for err == nil && (b != EOL_CR[0] || b != EOL_LF[0]) {
 		b, err = src.ReadByte()
-
+		log.Println(b)
 		current_position++
 	}
 
